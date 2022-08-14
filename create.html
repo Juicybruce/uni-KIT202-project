@@ -29,30 +29,31 @@
   </header>
 
   <section class="container">
+    <div class="create">
+    <h1>Start Posting</h1>
+    <form novalidate class="createForm" name="createAPostForm">
+      <label for="tileOfPostField">Title of Post: (Max of 70 Characters)</label>
+      <input type="text" id="tileOfPostField" name="tileOfPostField">
+      <br>
+      <br>
 
-  <form novalidate class="createForm" name="createAPostForm">
-    <label for="tileOfPostField">Title of Post: (Max of 70 Characters)</label>
-    <input type="text" id="tileOfPostField" name="tileOfPostField">
-    <br>
-    <br>
+      <label for="tagsField">Enter the tags for the post: (Tags seperated by , )</label>
+      <input type="text" id="tagsField" name="tagsField">
+      <br>
+      <br>
 
-    <label for="tagsField">Enter the tags for the post: (Tags seperated by , )</label>
-    <input type="text" id="tagsField" name="tagsField">
-    <br>
-    <br>
+      <label for="contentField">Enter the content of the post:</label>
+      <input type="text" id="contentField" name="contentField">
+      <br>    
+      <br>
 
-    <label for="contentField">Enter the content of the post:</label>
-    <input type="text" id="contentField" name="contentField">
-    <br>    
-    <br>
+      <input class="button" type="submit" value="Submit">
+      <input class="button" type="reset">
 
-    <input type="submit" value="Submit">
-    <input type="reset">
+    </form>
 
-  </form>
-
-  <h2 class="errorMessage" id="errorMessage"></h2>
-
+    <h2 class="errorMessage" id="errorMessage"></h2>
+    </div>
   </section>
   
   <footer class="footer">
