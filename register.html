@@ -1,4 +1,4 @@
-<title>Login</title>
+<title>Register</title>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="">
@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="./static/css/style.css">
 
-  <script src="./static/js/login.js" defer></script>
+  <script src="./static/js/reg-script.js" defer></script>
 
   <!-- FontAwesome Kit for Icons -->
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
@@ -34,22 +34,15 @@
         <div class="logo-name">*Site Name*</div>
       </div>
       <div class="login-content">
-        <h1>Login to your account</h1>
-        <p>Login using your social accounts:</p>
-        <div class="login-socials">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-google-plus"></i>
-          <i class="fab fa-linkedin"></i>
-        </div>
-        <div class="divider"><span>Or login here</span></div>
-        <form class="login-form" action="">
-          <input type="text" id="username" name="username" placeholder="Email or Account Name">
+        <div class="divider"><span><h1>Register a new account!</h1></span></div>
+        <form class="login-form" action="" novalidate>
+          <input type="text" id="username" name="username" placeholder="Account Name">
+          <input type="text" id="email" name="email" placeholder="Email Address">
           <input type="password" id="pass" name="password" minlength="8" required placeholder="Password">
-          <input class="button" type="button" value="Sign In"></input>
+          <input type="confirmPass" id="confpass" name="confirmPass" minlength="8" required placeholder="Confrim Password">
+          <input class="button" type="button" value="Register!"></input>
+          <input class="button" type="button" value="Reset"></input>
         </form>
-        <div class="divider"><span>Don't have an account yet?</span></div>
-        <a href="./register.html" class="register-button">Sign up here!</a>
-      </div>
     </div>
   </section>
   <footer class="footer">
