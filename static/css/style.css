@@ -137,6 +137,10 @@ header {
   display: none;
 }
 
+.icon-archive {
+  pointer-events: none;
+}
+
 /* login styles */
 
 .login {

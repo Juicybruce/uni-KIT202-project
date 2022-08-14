@@ -9,8 +9,6 @@ currentLinks.forEach(function(link) {
   }
 }); 
 
-// event handler for clicking to expand an archive 
-// BUG: seems to periodically have the content return NULL, meaning the query select isn't grabbing it
 function showContent (event) {
   if(event.target.classList.contains("expand")){
     content = event.target.parentNode.querySelector('.post-content');
@@ -21,10 +19,6 @@ function showContent (event) {
     arrow.classList.toggle("fa-angle-down");
     arrow.classList.toggle("fa-angle-up");
   }
-
-  //console.log(event.target.parentNode.querySelector('.post-content'));
-
-  //console.log(event.target);
 
 }
 if (window.location.pathname == '/archive.html') {
