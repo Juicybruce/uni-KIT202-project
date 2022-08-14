@@ -48,8 +48,8 @@ header {
 }
 
 /* header link for current page */
-.currentPage {
-  color: var(--tertiary)
+#currentPage {
+  background-color: var(--tertiary)
 }
 
 /* footer styling */
@@ -100,19 +100,22 @@ header {
 }
 
 .post-title {
-
+  font-size: 150%;
 }
 
 .post-date {
-
+  font-style: italic;
+  font-size: small;
 }
 
 .post-content {
-
+  border-top: 2px dotted grey;
+  padding: 20px;
 }
 
 .post-tags {
-
+  font-style: italic;
+  text-decoration: underline;
 }
 
 .post-tags > a {
@@ -264,4 +267,38 @@ header {
 
 .errorMessage {
   color: red;
+}
+
+/* create post styles */
+
+.create {
+  width:50%;
+  background-color: var(--grey);
+  padding: 60px;
+  border-radius: 30px;
+}
+
+.create > h1 {
+  text-align: center;
+  border-bottom: 2px dashed grey;
+  padding: 40px;
+}
+
+.createForm > .button {
+  margin: 10px 0px;
+  padding: 10px 40px;
+  border: 2px solid var(--black);
+  border-radius: 25px;
+  background-color: var(--accent);
+
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.createForm > .button:hover {
+  background-color: var(--primary);
+  color: var(--black);
+  cursor: pointer;
 }
