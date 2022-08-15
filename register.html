@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./static/css/style.css">
 
   <script src="./static/js/reg-script.js" defer></script>
+  <script src="./static/js/script-global.js" defer></script>
 
   <!-- FontAwesome Kit for Icons -->
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
@@ -35,13 +36,14 @@
       </div>
       <div class="login-content">
         <div class="divider"><span><h1>Register a new account!</h1></span></div>
-        <form class="login-form" action="" novalidate>
+        <form class="login-form" action="" name="register-form" novalidate>
           <input type="text" id="username" name="username" placeholder="Account Name">
           <input type="text" id="email" name="email" placeholder="Email Address">
-          <input type="password" id="pass" name="password" minlength="8" required placeholder="Password">
-          <input type="confirmPass" id="confpass" name="confirmPass" minlength="8" required placeholder="Confrim Password">
-          <input class="button" type="button" value="Register!"></input>
-          <input class="button" type="button" value="Reset"></input>
+          <input type="password" id="pass" name="password" placeholder="Password">
+          <input type="password" id="confpass" name="confirmPass"  placeholder="Confrim Password">
+          <div class="errorMessage" id="errorMessage"></div>
+          <input class="button" type="submit" value="Register!"></input>
+          <input class="button" type="reset" value="Reset"></input>
         </form>
     </div>
   </section>

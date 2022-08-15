@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./static/css/style.css">
 
   <script src="./static/js/login.js" defer></script>
+  <script src="./static/js/script-global.js" defer></script>
 
   <!-- FontAwesome Kit for Icons -->
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
@@ -42,11 +43,12 @@
           <i class="fab fa-linkedin"></i>
         </div>
         <div class="divider"><span>Or login here</span></div>
-        <form class="login-form" action="">
+        <form class="login-form" name="login-form" action="" novalidate>
           <input type="text" id="username" name="username" placeholder="Email or Account Name">
           <input type="password" id="pass" name="password" minlength="8" required placeholder="Password">
-          <input class="button" type="button" value="Sign In"></input>
+          <input class="button" type="submit" value="Sign In"></input>
         </form>
+        <h2 class="errorMessage" id="errorMessage"></h2>
         <div class="divider"><span>Don't have an account yet?</span></div>
         <a href="./register.html" class="register-button">Sign up here!</a>
       </div>

@@ -224,6 +224,10 @@ header {
   color: var(--black);
 }
 
+.login-form > input.invalid {
+  border-color: red;
+}
+
 .login-form > .button {
   margin: 10px 0px;
   padding: 10px 40px;
