@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./static/css/style.css">
 
   <script src="./static/js/createAPostScript.js" defer></script>
+  <script src="./static/js/script-global.js" defer></script>
 
   <!-- FontAwesome Kit for Icons -->
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
@@ -29,29 +30,24 @@
   </header>
 
   <section class="container">
-    <div class="create">
-    <h1>Start Posting</h1>
+
+  <div class="createAPost">
+    <div class="divider">
+      <span>
+        <h1>Create a new post</h1>
+      </span>
+    </div>
     <form novalidate class="createForm" name="createAPostForm">
-      <label for="tileOfPostField">Title of Post: (Max of 70 Characters)</label>
-      <input type="text" id="tileOfPostField" name="tileOfPostField">
-      <br>
-      <br>
-
-      <label for="tagsField">Enter the tags for the post: (Tags seperated by , )</label>
-      <input type="text" id="tagsField" name="tagsField">
-      <br>
-      <br>
-
-      <label for="contentField">Enter the content of the post:</label>
-      <input type="text" id="contentField" name="contentField">
-      <br>    
-      <br>
-
+      <input type="text" id="tileOfPostField" name="tileOfPostField" placeholder="Title of Post: (Max of 70 Characters)">
+      <input type="text" id="tagsField" name="tagsField" placeholder="Enter the tags for the post: (Tags seperated by , )">
+      <textarea id="contentField" name="contentField" placeholder="Enter the content of the post"></textarea>
       <input class="button" type="submit" value="Submit">
       <input class="button" type="reset">
-
+      <h2 class="errorMessage" id="errorMessage"></h2>
     </form>
-
+    
+   </div>
+  
     <h2 class="errorMessage" id="errorMessage"></h2>
     </div>
   </section>

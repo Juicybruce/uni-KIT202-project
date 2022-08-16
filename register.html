@@ -1,4 +1,4 @@
-<title>Login</title>
+<title>Register</title>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="">
@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="./static/css/style.css">
 
-  <script src="./static/js/login.js" defer></script>
+  <script src="./static/js/reg-script.js" defer></script>
   <script src="./static/js/script-global.js" defer></script>
 
   <!-- FontAwesome Kit for Icons -->
@@ -23,7 +23,7 @@
     <a href="index.html">
       <img src="./static/images/temp-logo.png" alt="logo" class="logo">
     </a>
-    <a href="login.html" id="currentPage" class="link">Login</a>
+    <a href="login.html" class="link">Login</a>
     <a href="create.html" class="link">Create a Post!</a>
     <a href="about.html" class="link">About Us</a>
     <a href="archive.html" class="link">Archive</a>
@@ -35,23 +35,16 @@
         <div class="logo-name">*Site Name*</div>
       </div>
       <div class="login-content">
-        <h1>Login to your account</h1>
-        <p>Login using your social accounts:</p>
-        <div class="login-socials">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-google-plus"></i>
-          <i class="fab fa-linkedin"></i>
-        </div>
-        <div class="divider"><span>Or login here</span></div>
-        <form class="login-form" name="login-form" action="" novalidate>
-          <input type="text" id="username" name="username" placeholder="Email or Account Name">
-          <input type="password" id="pass" name="password" minlength="8" required placeholder="Password">
-          <input class="button" type="submit" value="Sign In"></input>
+        <div class="divider"><span><h1>Register a new account!</h1></span></div>
+        <form class="login-form" action="" name="register-form" novalidate>
+          <input type="text" id="username" name="username" placeholder="Account Name">
+          <input type="text" id="email" name="email" placeholder="Email Address">
+          <input type="password" id="pass" name="password" placeholder="Password">
+          <input type="password" id="confpass" name="confirmPass"  placeholder="Confrim Password">
+          <div class="errorMessage" id="errorMessage"></div>
+          <input class="button" type="submit" value="Register!"></input>
+          <input class="button" type="reset" value="Reset"></input>
         </form>
-        <h2 class="errorMessage" id="errorMessage"></h2>
-        <div class="divider"><span>Don't have an account yet?</span></div>
-        <a href="./register.html" class="register-button">Sign up here!</a>
-      </div>
     </div>
   </section>
   <footer class="footer">
