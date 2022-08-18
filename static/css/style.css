@@ -106,19 +106,22 @@ header {
 }
 
 .post-title {
-
+  font-size: 150%;
 }
 
 .post-date {
-
+  font-style: italic;
+  font-size: small;
 }
 
 .post-content {
-
+  border-top: 2px dotted grey;
+  padding: 20px;
 }
 
 .post-tags {
-
+  font-style: italic;
+  text-decoration: underline;
 }
 
 .post-tags > a {
