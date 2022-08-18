@@ -9,7 +9,6 @@ function showContent (event) {
     arrow.classList.toggle("fa-angle-down");
     arrow.classList.toggle("fa-angle-up");
   }
-
 }
 
 document.querySelectorAll(".expand").forEach( item => { 

@@ -30,6 +30,54 @@
   </header>
   <section class="container">
 
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Theme of the Blog</h4>
+      </div>
+      <p class="post-content">
+        The theme of the website that we chose was a Lorem Ipsum fansite which was chosen as a theme due to our appiraction for Lorem Ipsum as it is a useful tool in web design to make sure text and content is looking how you want it to. Because of this we decided to use Lorem Ipsum for all of our text content because of this. We chose the visuals of our website by using red for the footer and header background because it contrasts against the grey of the background while still being easily readable. We also used blue and soft yellow for the other colours internally as they contrast against the background while still being easily readable. We chose readability as the main thing as Lorem Ipsum has had a history of being used quite frequently in typography and felt that was a way to connect it to the aesthetic of the website.
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Password Policy</h4>
+      </div>
+      <p class="post-content">
+        The password policy the group has chosen consists of the follow: <br>
+          - A minimum of 8 characters <br>
+          - at least 1 capital letter <br>
+          - at least 1 lower case letter <br>
+          - one digit 0-9 <br>
+          - one special character <br>
+
+          Each of these are enforced to make sure passwords that are selected by users are more resilient against brute-force hash breaking techniques and are less likely to be commonly reused passwords that are easily guessed (123456, batman, password). 
+          In this way even if passwords selected are obvious (from a social deduction standpoint), or reused, enforcing special characters, digits and mixed case hopefully adds enough variation to resist credential stuffing. <br>
+
+         <br>The minimum of 8 characters is what is currently recommended for the lower limit by the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP foundation</a> in their guidance on Authentication in general.
+          While we would enforce an upper limit of 64 characters to allow compliance with certain hashing algorithms and to prevent Denial of Service attacks via massive password string being sent to the backend server, that is piece of functionality that will be added when we have a backend service that needs such protection. <br>
+          
+          <br> While we do enforce the use of special characters (unrestrictied, unicode characters checked for and regex characters being escaped in the check), there is an argument to be made that the preferred password is one of 'phrases' rather than complicated pass 'words'
+          This is certainly valid, as passphrases (with spaces) give a far higher resilence to certain kinds of attacks (<a href="https://xkcd.com/936/">so long as one does not use the words 'battery' or 'horse'</a>), while being far easier to remember . However, we have opted for the more traditional approach.
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">New registration</h4>
+      </div>
+      <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Embellishments</h4>
+      </div>
+      <p class="post-content">
+        Lorem
+      </p>
+    </div>
+
   </section>
   <footer class="footer">
     <div class="social-icons">
