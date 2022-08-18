@@ -37,20 +37,27 @@ header {
   font-weight: 700;
   margin-left: 30px;
   text-decoration: none;
-  padding: 15px;
-  border: 1px solid var(--black);
+  padding: 10px 25px;
+  border: 2px solid var(--black);
   border-radius: 15px;
 }
 
 /* header links on hover */
 .link:hover {
-  text-decoration: underline;
+  border: 2px solid var(--tertiary);
+  color: var(--tertiary);
 }
 
 /* header link for current page */
 .currentPage {
-  color: var(--tertiary)
+  color: var(--tertiary);
+  cursor: default;
 }
+.currentPage:hover { 
+  text-decoration: none;
+  border: 2px solid var(--black);
+}
+
 
 /* footer styling */
 
