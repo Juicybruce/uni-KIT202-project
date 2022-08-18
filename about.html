@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="">
-  <meta name="author" content="Alex Drew">
+  <meta name="author" content="Alex Drew, Giang, Katherine Peschar">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google fonts  -->
@@ -21,7 +21,7 @@
 <body>
   <header class="header">
     <a href="index.html">
-      <img src="./static/images/temp-logo.png" alt="logo" class="logo">
+      <img src="./static/images/logo.svg" alt="logo" class="logo">
     </a>
     <a href="login.html" class="link">Login</a>
     <a href="create.html" class="link">Create a Post!</a>
@@ -29,6 +29,79 @@
     <a href="archive.html" class="link">Archive</a>
   </header>
   <section class="container">
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Theme of the Blog</h4>
+      </div>
+      <p class="post-content">
+        The theme of the website that we chose was a Lorem Ipsum fansite which was chosen as a theme due to our appiraction for Lorem Ipsum as it is a useful tool in web design to make sure text and content is looking how you want it to. Because of this we decided to use Lorem Ipsum for all of our text content because of this. <br>
+        <br> We chose the visuals of our website by using red for the footer and header background because it contrasts against the grey of the background while still being easily readable. We also used blue and soft yellow for the other colours internally as they contrast against the background while still being easily readable. We chose readability as the main thing as Lorem Ipsum has had a history of being used quite frequently in typography and felt that was a way to connect it to the aesthetic of the website.
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Password Policy</h4>
+      </div>
+      <p class="post-content">
+        The password policy the group has chosen consists of the follow: <br>
+          - A minimum of 8 characters <br>
+          - at least 1 capital letter <br>
+          - at least 1 lower case letter <br>
+          - one digit 0-9 <br>
+          - one special character <br>
+
+          Each of these are enforced to make sure passwords that are selected by users are more resilient against brute-force hash breaking techniques and are less likely to be commonly reused passwords that are easily guessed (123456, batman, password). 
+          In this way even if passwords selected are obvious (from a social deduction standpoint), or reused, enforcing special characters, digits and mixed case hopefully adds enough variation to resist credential stuffing. <br>
+
+         <br>The minimum of 8 characters is what is currently recommended for the lower limit by the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP foundation</a> in their guidance on Authentication in general.
+          While we would enforce an upper limit of 64 characters to allow compliance with certain hashing algorithms and to prevent Denial of Service attacks via massive password string being sent to the backend server, that is piece of functionality that will be added when we have a backend service that needs such protection. <br>
+          
+          <br> While we do enforce the use of special characters (unrestricted, unicode characters checked for and regex characters being escaped in the check), there is an argument to be made that the preferred password is one of 'phrases' rather than complicated pass 'words'
+          This is certainly valid, as passphrases (with spaces) give a far higher resilence to certain kinds of attacks (<a href="https://imgs.xkcd.com/comics/password_strength.png">so long as one does not use the words 'battery' or 'horse'</a>), while being far easier to remember . However, we have opted for the more traditional approach.
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">New registration</h4>
+      </div>
+      <p class="post-content">
+
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Embellishments</h4>
+      </div>
+      <p class="post-content">
+        Lorem
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Sources</h4>
+      </div>
+      <p class="post-content">
+        We are utilising the Mulish san serif font, designed by Vernon Adams, Cyreal and Jacques Le Bailly. Available <a href="https://fonts.google.com/specimen/Mulish?query=mulish">Here</a><br>
+        <br>We are also utilising <a href="https://fontawesome.com/">FontAwesome 5</a> for icons (as a free version webkit), specifically the "angle-up", "angle-down" and four common social media icons. <br>
+        <br> The logo icon is a public domain SVG <a href="https://freesvg.org/graphite-mountain-logo">available here</a> <br>
+      </p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h4 class="post-title">Group Members</h4>
+      </div>
+      <p class="post-content">
+        Alex Drew - 165 387<br>
+        Katherine Peschar - 558900 <br> 
+        Giang - 605736 <br>
+      </p>
+    </div>
 
   </section>
   <footer class="footer">
