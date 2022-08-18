@@ -101,6 +101,7 @@ header {
 
 .post-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
@@ -120,15 +121,22 @@ header {
 }
 
 .post-tags {
-  font-style: italic;
-  text-decoration: underline;
+  padding: 10px 0;
 }
 
 .post-tags > a {
+  background-color: var(--white);
+  font-style: italic;
   text-decoration: none;
+  border: 2px dotted var(--accent);
+  border-radius: 5px 30px 30px 5px;
+  padding: 5px;
 }
 
 /* archive styles */
+h1 {
+  font: 300% 'Corrier New', monospace;
+}
 
 .expand {
   display: flex;
