@@ -15,7 +15,7 @@ $sql = "INSERT INTO POST
 
 if ( $response = $conn->query($sql)) {
     $conn->close();
-    header('Location: ./index.html');
+    header('Location: ./index.php');
 }
 
 // TODO, need to iterate tags to: 

@@ -1,4 +1,4 @@
-<title>Register</title>
+<title>Home</title>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="">
@@ -12,12 +12,12 @@
 
   <link rel="stylesheet" href="./static/css/style.css">
 
-  <script src="./static/js/reg-script.js" defer></script>
   <script src="./static/js/script-global.js" defer></script>
 
   <!-- FontAwesome Kit for Icons -->
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <header class="header">
     <a href="index.php">
@@ -28,25 +28,33 @@
     <a href="about.html" class="link">About Us</a>
     <a href="archive.php" class="link">Archive</a>
   </header>
-  <section class="container">
-    <div class="login">
-      <div class="login-header">
-        <img src="./static/images/logo.svg" alt="logo" class="logo">
-        <div class="logo-name">Graphite Collective</div>
-      </div>
-      <div class="login-content">
-        <div class="divider"><span><h1>Register a new account!</h1></span></div>
-        <form class="login-form" action="./index.php" method="POST" name="register-form" novalidate>
-          <input type="text" id="username" name="username" placeholder="Account Name">
-          <input type="text" id="email" name="email" placeholder="Email Address">
-          <input type="password" id="pass" name="password" placeholder="Password">
-          <input type="password" id="confpass" name="confirmPass"  placeholder="Confrim Password">
-          <div class="errorMessage" id="errorMessage"></div>
-          <input class="button" type="submit" value="Register!"></input>
-          <input class="button" type="reset" value="Reset"></input>
-        </form>
-    </div>
-  </section>
+  <?php 
+      require "./dbconn.php";
+      $sql = "SELECT postTitle, postDATE, postContent 
+              FROM POST 
+              ORDER BY postDate DESC 
+              LIMIT 4;";
+      $response = $conn->query($sql);
+      if ($response && $response->num_rows > 0): ?>
+        <section class="container">
+          <?php while ($row = $response->fetch_assoc()): ?>
+            <div class="post">
+              <div class="post-header">
+                <h4 class="post-title"><?php echo $row['postTitle']; ?></h4>
+                <p class="post-date">Posted on: <?php echo $row['postDATE']; ?></p>
+              </div>
+              <p class="post-content"><?php echo $row['postContent']; ?></p>
+              <div class="post-tags"> Tagged:
+                <a href="#">lorem</a>
+                <a href="#">ipsum</a>
+                <a href="#">dolor</a>
+                <a href="#">sit</a>
+                <a href="#">consectetur</a>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </section>
+      <?php endif; ?>
   <footer class="footer">
     <div class="social-icons">
       <i class="fab fa-twitter"></i>
