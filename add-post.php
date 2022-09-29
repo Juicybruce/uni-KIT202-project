@@ -5,13 +5,13 @@ require 'dbconn.php';
 $title = htmlspecialchars($_POST['title']);
 $tagsArray = explode(',', $_POST['tagsField']);
 $content = htmlspecialchars($_POST['contentField']);
-$userID = 1; //placeholder, this needs to be changed once users are implemented
+$accountID = 1; //placeholder, this needs to be changed once users are implemented
 $date = date("Y-m-d");
 
 $sql = "INSERT INTO POST
-        (userID, postTitle, postContent, postDATE) 
+        (accountID, postTitle, postContent, postDATE) 
         VALUES 
-        ($userID, '$title', '$content', '$date');";
+        ($accountID, '$title', '$content', '$date');";
 
 if ( $response = $conn->query($sql)) {
     $conn->close();
