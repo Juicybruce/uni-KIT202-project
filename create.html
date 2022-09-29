@@ -36,8 +36,8 @@
         <h1>Create a new post</h1>
       </span>
     </div>
-    <form novalidate class="createForm" name="createAPostForm">
-      <input type="text" id="tileOfPostField" name="tileOfPostField" placeholder="Title of Post: (Max of 70 Characters)">
+    <form novalidate class="createForm" name="createAPostForm" method="POST" action="add-post.php">
+      <input type="text" id="tileOfPostField" name="title" placeholder="Title of Post: (Max of 70 Characters)">
       <input type="text" id="tagsField" name="tagsField" placeholder="Enter the tags for the post: (Tags seperated by , )">
       <textarea id="contentField" name="contentField" placeholder="Enter the content of the post"></textarea>
       <input class="button" type="submit" value="Submit">

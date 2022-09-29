@@ -43,7 +43,7 @@ function validateForm(event)
 
                 else
                 {
-                    window.location.assign("index.html");
+                    form.submit();
                 }
             }
         }
