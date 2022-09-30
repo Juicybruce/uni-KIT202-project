@@ -27,7 +27,7 @@ if ($response = $conn->query($selectSQL)) {
                 VALUES
                 ('$tag');"; 
         $tagID;
-        $selectTagSQL = "SELECT tagID FROM TAG WHERE tagName = 1";
+        $selectTagSQL = "SELECT tagID FROM TAG WHERE tagName = '$tag'";
         while($row = $response->fetch_assoc()) {
             if($row['tagName'] === $tag) {
                 $found = true;
@@ -40,7 +40,9 @@ if ($response = $conn->query($selectSQL)) {
         }
         else
         {
-            $tagID = $conn->query($selectTagSQL);
+            $responseTag = $conn->query($selectTagSQL);
+            $rowTag = $responseTag->fetch_assoc();
+            $tagID = $rowTag['tagID'];
         }
         $insertHasTagSQL = "INSERT INTO HASTAGS 
                     (postID, tagID)
