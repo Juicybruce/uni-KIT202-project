@@ -42,10 +42,18 @@
       if ($responsePost && $responsePost->num_rows > 0){ ?>
         <section class="container">
           <?php while ($rowPost = $responsePost->fetch_assoc()){?>
+            <?php
+            $accountID = $rowPost['accountID'];
+            $selectAccountSQL = "SELECT * FROM ACCOUNT WHERE accountID = '$accountID';";
+            
+            $responseAccount = $conn->query($selectAccountSQL);
+
+            $rowAccount = $responseAccount->fetch_assoc();
+            ?>
             <div class="post">
               <div class="post-header">
                 <h4 class="post-title"><?php echo $rowPost['postTitle']; ?></h4>
-                <p class="post-date">Posted on: <?php echo $rowPost['postDATE']; ?></p>
+                <p class="post-date">Posted on: <?php echo $rowPost['postDATE']; ?> By <?php echo $rowAccount['accountName']; ?></p>
               </div>
               <p class="post-content"><?php echo $rowPost['postContent']; ?></p>
               <?php 
