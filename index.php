@@ -30,31 +30,56 @@
   </header>
   <?php 
       require "./dbconn.php";
-      $sql = "SELECT postTitle, postDATE, postContent 
+      $selectPostSQL = "SELECT * 
               FROM POST 
               ORDER BY postDate DESC 
               LIMIT 4;";
-      $response = $conn->query($sql);
-      if ($response && $response->num_rows > 0): ?>
+      
+      $selectHasTagSQL = "SELECT * FROM HASTAGS;";
+
+      $responsePost = $conn->query($selectPostSQL);
+
+      if ($responsePost && $responsePost->num_rows > 0){ ?>
         <section class="container">
-          <?php while ($row = $response->fetch_assoc()): ?>
+          <?php while ($rowPost = $responsePost->fetch_assoc()){?>
             <div class="post">
               <div class="post-header">
-                <h4 class="post-title"><?php echo $row['postTitle']; ?></h4>
-                <p class="post-date">Posted on: <?php echo $row['postDATE']; ?></p>
+                <h4 class="post-title"><?php echo $rowPost['postTitle']; ?></h4>
+                <p class="post-date">Posted on: <?php echo $rowPost['postDATE']; ?></p>
               </div>
-              <p class="post-content"><?php echo $row['postContent']; ?></p>
-              <div class="post-tags"> Tagged:
-                <a href="#">lorem</a>
-                <a href="#">ipsum</a>
-                <a href="#">dolor</a>
-                <a href="#">sit</a>
-                <a href="#">consectetur</a>
-              </div>
+              <p class="post-content"><?php echo $rowPost['postContent']; ?></p>
+              <?php 
+              $tagArray = array();
+              $responseHasTags = $conn->query($selectHasTagSQL);
+              $selectTagSQL = "SELECT * FROM TAG";
+              if($responseHasTags && $responseHasTags->num_rows > 0) {
+                 while($rowHasTags = $responseHasTags->fetch_assoc())
+                 {
+                    if($rowPost['postID'] === $rowHasTags['postID'])
+                    {
+                      $tagArray[count($tagArray)] = $rowHasTags['tagID'];
+                    }
+                 } 
+                echo '<div class="post-tags"> Tagged:';
+                $responseTag = $conn->query($selectTagSQL);
+                if($responseTag && $responseTag->num_rows > 0)
+                {
+                  while($rowTags = $responseTag->fetch_assoc())
+                  {
+                    foreach($tagArray as $tag) {
+                      if($rowTags['tagID'] === $tag)
+                      {
+                        echo '<a href="#">'.$rowTags['tagName'].'</a>';
+                      }
+                    }
+                  }
+                }
+                echo '</div>';
+              } ?>
             </div>
-          <?php endwhile; ?>
+          <?php } ?>     
         </section>
-      <?php endif; ?>
+      <?php } ?> 
   <footer class="footer">
     <div class="social-icons">
       <i class="fab fa-twitter"></i>
