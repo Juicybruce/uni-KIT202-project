@@ -32,7 +32,7 @@
       require "./dbconn.php";
       $selectPostSQL = "SELECT * 
               FROM POST 
-              ORDER BY postDate DESC 
+              ORDER BY postDate DESC, postID DESC
               LIMIT 4,18446744073709551615;";
       
       $selectHasTagSQL = "SELECT * FROM HASTAGS;";
