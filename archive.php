@@ -55,7 +55,7 @@
                 <h4 class="post-title"><?php echo $rowPost['postTitle']; ?></h4>
                 <p class="post-date">Posted on: <?php echo $rowPost['postDATE']; ?> By <?php echo $rowAccount['accountName']; ?></p>
               </div>
-              <p class="post-content"><?php echo $rowPost['postContent']; ?></p>
+              <p class="post-content hidden"><?php echo $rowPost['postContent']; ?></p>
               <?php 
               $tagArray = array();
               $responseHasTags = $conn->query($selectHasTagSQL);
@@ -84,6 +84,9 @@
                 }
                 echo '</div>';
               } ?>
+            	<div class="expand">
+      			    <i class="icon-archive fas fa-angle-down"></i>
+      			  </div>
             </div>
           <?php } ?>     
         </section>
