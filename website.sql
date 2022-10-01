@@ -11,6 +11,7 @@ CREATE TABLE ACCOUNT (
 	accountName VARCHAR(30) NOT NULL,
     accountPassword VARCHAR(50) NOT NULL,
     accountRole VARCHAR(10) NOT NULL, 
+    accountEmail VARCHAR(200) NOT NULL,
 	PRIMARY KEY (accountID)
 	)
 	ENGINE=InnoDB;
@@ -51,14 +52,14 @@ CREATE TABLE RATES (
     )
     ENGINE=InnoDB;
 
-INSERT INTO ACCOUNT VALUES (1,'admin', 'kit202', 'AUTHOR');
-INSERT INTO ACCOUNT VALUES (2,'member', 'kit202', 'MEMBER');
+INSERT INTO ACCOUNT VALUES (1,'admin', 'kit202', 'ADMIN', 'admin@admin.com');
+INSERT INTO ACCOUNT VALUES (2,'member', 'kit202', 'MEMBER', 'member@member.com');
 
 INSERT INTO TAG VALUES (1,'lorem');
 INSERT INTO TAG VALUES (2,'ipsum');
 
 INSERT INTO POST VALUES (1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco* laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
 in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
 mollit anim id est laborum.", '2022-9-28', "Lorem Ipsum", 1);
 INSERT INTO POST VALUES (2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
