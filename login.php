@@ -87,7 +87,7 @@ function authenticate($user, $pass)
         </form>
         <h2 class="errorMessage" id="errorMessage"></h2>
         <div class="divider"><span>Don't have an account yet?</span></div>
-        <a href="./register.html" class="register-button">Sign up here!</a>
+        <a href="./register.php" class="register-button">Sign up here!</a>
       </div>
     </div>
   </section>
