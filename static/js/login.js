@@ -21,5 +21,7 @@ function validateLogin(event)
     pass = false;
   }
 
-  pass === true ?  true :  false;
+  if (pass) {
+    form.submit();
+  }
 }
