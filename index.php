@@ -1,8 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <title>Home</title>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="">
-  <meta name="author" content="Alex Drew, Giang, Katherine Peschar">
+  <meta name="author" content="Alex Drew, Nguyen Ngan Giang Lai, Katherine Peschar">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google fonts  -->

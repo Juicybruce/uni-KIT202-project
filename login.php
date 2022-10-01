@@ -1,6 +1,6 @@
 <?php
 require "dbconn.php";
-//$_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]) && 
+ 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = htmlspecialchars($_POST["username"]);
     $password = htmlspecialchars($_POST["password"]);
@@ -13,13 +13,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     }
 }
 
-// Queries the DBMS with the supplied user details
-// Returns true on successful authentication and false otherwise.
 function authenticate($user, $pass)
 {
     global $conn;
 
-    // Complete this function
     $sql = "SELECT accountPassword FROM ACCOUNT WHERE accountName='$user'";
     $result = $conn->query($sql);
     
