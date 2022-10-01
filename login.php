@@ -20,7 +20,7 @@ function authenticate($user, $pass)
     $sql = "SELECT accountPassword FROM ACCOUNT WHERE accountName='$user'";
     $result = $conn->query($sql);
     
-    if ($result->fetch_assoc() == $pass) {
+    if (password_verify($pass, $result->fetch_assoc())) {
       return true;
     }
     else {
