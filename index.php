@@ -83,7 +83,24 @@
                   }
                 }
                 echo '</div>';
-              } ?>
+              } 
+              $selectRatesSQL = "SELECT * FROM RATES;";
+
+              $responseRates = $conn->query($selectRatesSQL);
+              
+              $rating = 0;
+              if($responseRates && $responseRates->num_rows > 0) {
+                while($rowRates = $responseRates->fetch_assoc()) {
+                    if($rowRates['postID'] === $rowPost['postID'])
+                    {
+                      $rating++;  
+                    }
+                }
+                ?>
+                <a href=<?php echo '"rate.php?id='.$rowPost['postID'].'&previous='.$_SERVER['REQUEST_URI'].'"'?>> <?php echo 'Ratings: '.$rating?> </a>
+                <?php
+              }
+              ?>
             </div>
           <?php } ?>     
         </section>
