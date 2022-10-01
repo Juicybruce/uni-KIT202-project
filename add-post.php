@@ -2,9 +2,9 @@
 
 require 'dbconn.php';
 
-$title = htmlspecialchars($_POST['title']);
+$title = $conn->real_escape_string(htmlspecialchars($_POST['title']));
 $tagsArray = explode(',', $_POST['tagsField']);
-$content = htmlspecialchars($_POST['contentField']);
+$content = $conn->real_escape_string(htmlspecialchars($_POST['contentField']));
 $accountID = 1; //placeholder, this needs to be changed once users are implemented
 $date = date("Y-m-d");
 
