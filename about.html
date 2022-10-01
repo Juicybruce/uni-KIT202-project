@@ -32,63 +32,6 @@
     <h1>About us</h1>
     <div class="post">
       <div class="post-header">
-        <h4 class="post-title">Changes made for Assignment 2</h4>
-      </div>
-      <p class="post-content">
-        In order to dynamically populate the home page with the latest posts, we utilized the PHP language and a MySQL database to retrieve stored posts. We first establish a remote connection with the database using appropriate credentials. This data contains a table of “Posts”, at first filled manually, and then filled via the ‘Create Post’ section of the website.
-        <br><br>
-        Once this connection is verified, we can then use the connection to submit queries to retrieve post data. The main and most basic is retrieving all the columns from the posts themselves, ordered by date and limited to the latest 4 (as per the spec). Other queries are made to other tables to retrieve relational data relating to posts, ie, the tags associated etc. 
-        <br><br>
-        The objects retrieved by these queries are then iterated over to dynamically build the HTML that will be displayed in the browser, having its content filled by what is stored in the database.
-      </p>
-    </div>
-
-    <div class="post">
-      <div class="post-header">
-        <h4 class="post-title">HTTP Method</h4>
-      </div>
-      <p class="post-content">
-        We have chosen to use the POST method for all form submissions across the website.
-        <br><br>
-        The POST method has various advantages over GET, the other main alternative. First of all, the data sent is not encoded directly into the URL, but are rather encoded into the body of the request. This allows for larger amounts of data to be sent, as URLs are naturally restricted in length. This also causes the content of the request to be less ‘visible’ to the user (in the URL), but also prevents browser caching or bookmarking of form submissions.
-        <br><br>
-        While on the form that submits post data to the database, the POST method is useful given there are no restrictions on data sent, it is more essential on form submission for user logins for security reasons. As we are sending data over SSL, the data is obfuscated using either method. However, GET requests have the URL query stored both in browser history, as well as logged by web servers by default, making it problematic for use with sensitive values.
-      </p>
-    </div>
-
-    <div class="post">
-      <div class="post-header">
-        <h4 class="post-title">User Roles</h4>
-      </div>
-      <p class="post-content">
-      </p>
-    </div>
-
-    <div class="post">
-      <div class="post-header">
-        <h4 class="post-title">Sanitisation and Security</h4>
-      </div>
-      <p class="post-content">
-        There are two main methods used for sanitizing user-sourced input within the website (ie, registration, login and post submission forms).
-        <br><br>
-        The first of these is the htmlspecialchars() PHP method. This ensures that certain characters that have special significance to a HTML processor such as & < or > are replaced with html entities that refer to the same symbols, but are not processed as such. Those three symbols would become: &amp, &lt and &gt. This is primarily to prevent XSS attacks.
-        <br><br>
-        Another method used in some places is real_escape_string(). This has a similar function but acts to escape any user-input that would have special significance when read into the database as a SQL query. This includes quotes, but also \, \r and \n. This is to prevent SQL-injection attacks, preventing any user inputted data from being processed as a malicious query.
-        <br><br>
-        There is some overlap in these two functions (namely ‘ and “), but between them they cover most possible incidents of malformed or malicious code injection.
-      </p>
-    </div>
-
-    <div class="post">
-      <div class="post-header">
-        <h4 class="post-title">Extensions</h4>
-      </div>
-      <p class="post-content">
-      </p>
-    </div>
-
-    <div class="post">
-      <div class="post-header">
         <h4 class="post-title">Theme of the Blog</h4>
       </div>
       <p class="post-content">
