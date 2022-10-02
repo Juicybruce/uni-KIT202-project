@@ -41,6 +41,11 @@ header {
   border-radius: 15px;
 }
 
+.session-box {
+  display: flex;
+  align-items: center;
+}
+
 .link--session {
   margin-left: auto;
 }
@@ -142,6 +147,38 @@ header {
   border-radius: 5px 30px 30px 5px;
   padding: 5px;
 }
+
+.ratings {
+  padding-top: 10px;
+}
+
+.ratings > a {
+  font-size: 18px;
+  color: #0A0C08;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.ratings > a:hover {
+  filter: brightness(110%);
+  text-decoration: underline;
+}
+
+.ratings > a:before {
+  content: '\f164';
+  font-size: 18px;
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  margin-right: 10px;
+}
+
 
 /* archive styles */
 h1 {

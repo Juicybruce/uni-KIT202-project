@@ -39,14 +39,13 @@
     <?php endif; ?>
 
     <?php if (isset($_SESSION['username'])): ?>
-      <div class="link--session">
+      <div class="session-box link--session ">
         <div>Welcome, <?php echo $_SESSION['username']; ?></div>
         <form method="POST" action="logout.php">
-          <input class="link" name="btnSubmit" type="submit" value="Log Out"></input>
-        </form>
+          <button class="link" name="btnSubmit" type="submit">Log Out</button>        </form>
       </div>
     <?php else:?>
-      <a href="login.php" class="link link--session">Login</a>
+      <a href="login.php" class="link session-box link--session ">Login</a>
     <?php endif; ?>
   </header>
   <section class="container">
