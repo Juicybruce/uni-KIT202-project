@@ -21,15 +21,8 @@
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="header">
-    <a href="index.php">
-      <img src="./static/images/logo.svg" alt="logo" class="logo">
-    </a>
-    <a href="login.php" class="link">Login</a>
-    <a href="create.html" class="link">Create a Post!</a>
-    <a href="about.html" class="link">About Us</a>
-    <a href="archive.php" class="link">Archive</a>
-  </header>
+  <?php require "header.php"; ?>
+
   <?php 
       require "./dbconn.php";
       $selectPostSQL = "SELECT * 

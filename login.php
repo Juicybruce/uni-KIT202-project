@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 require "dbconn.php";
 $salt = '$5$kit202';
@@ -7,6 +8,14 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $password = htmlspecialchars($_POST["password"]);
 
     if(authenticate($username, $password) === true) {
+      $sql = "SELECT accountID, accountRole FROM ACCOUNT WHERE accountName='$username'";
+      $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+
+
+      $_SESSION['username'] = $username;
+      $_SESSION['id'] = $row['accountID'];
+      $_SESSION['role'] = $row['accountRole'];
       header("location: index.php");
     }
     else {
@@ -21,9 +30,7 @@ function authenticate($user, $pass)
     $sql = "SELECT accountPassword FROM ACCOUNT WHERE accountName='$user'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    var_dump($result);
-    var_dump($row);
-    
+
     if (password_verify($pass, $row['accountPassword'] )) {
       return true;
     }
@@ -61,11 +68,22 @@ function authenticate($user, $pass)
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
     </a>
-    <a href="login.php" class="link">Login</a>
-    <a href="create.html" class="link">Create a Post!</a>
-    <a href="about.html" class="link">About Us</a>
+    <a href="create.php" class="link">Create a Post!</a>
+    <a href="about.php" class="link">About Us</a>
     <a href="archive.php" class="link">Archive</a>
+
+    <?php if (isset($_SESSION['username'])): ?>
+      <div class="link--session">
+        <div>Welcome, <?php echo $_SESSION['username']; ?></div>
+        <form method="POST" action="logout.php">
+          <input class="link" name="btnSubmit" type="submit" value="Log Out"></input>
+        </form>
+      </div>
+    <?php else:?>
+      <a href="login.php" class="link link--session">Login</a>
+    <?php endif; ?>
   </header>
+
   <section class="container">
     <div class="login">
       <div class="login-header">

@@ -41,6 +41,10 @@ header {
   border-radius: 15px;
 }
 
+.link--session {
+  margin-left: auto;
+}
+
 /* header links on hover */
 .link:hover {
   border: 2px solid var(--tertiary);

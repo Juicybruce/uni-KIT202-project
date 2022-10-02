@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Home</title>
@@ -20,16 +22,27 @@
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body> 
   <header class="header">
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
     </a>
-    <a href="login.html" class="link">Login</a>
-    <a href="create.html" class="link">Create a Post!</a>
-    <a href="about.html" class="link">About Us</a>
+    <a href="create.php" class="link">Create a Post!</a>
+    <a href="about.php" class="link">About Us</a>
     <a href="archive.php" class="link">Archive</a>
+
+    <?php if (isset($_SESSION['username'])): ?>
+      <div class="link--session">
+        <div>Welcome, <?php echo $_SESSION['username']; ?></div>
+        <form method="POST" action="logout.php">
+          <input class="link" name="btnSubmit" type="submit" value="Log Out"></input>
+        </form>
+      </div>
+    <?php else:?>
+      <a href="login.php" class="link link--session">Login</a>
+    <?php endif; ?>
   </header>
+
   <?php 
       require "./dbconn.php";
       $selectPostSQL = "SELECT * 
