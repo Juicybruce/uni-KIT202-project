@@ -1,12 +1,13 @@
 <?php
 require "dbconn.php";
+$salt = '$5$kit202';
  
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = htmlspecialchars($_POST["username"]);
     $password = htmlspecialchars($_POST["password"]);
 
-    if(authenticate($username, $password) == true) {
-      header("location: 'index.php'");
+    if(authenticate($username, $password) === true) {
+      header("location: index.php");
     }
     else {
         echo "<p>Invalid username or password.</br>Please try again.</p>";
@@ -19,8 +20,11 @@ function authenticate($user, $pass)
 
     $sql = "SELECT accountPassword FROM ACCOUNT WHERE accountName='$user'";
     $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    var_dump($result);
+    var_dump($row);
     
-    if (password_verify($pass, $result->fetch_assoc())) {
+    if (password_verify($pass, $row['accountPassword'] )) {
       return true;
     }
     else {
@@ -80,7 +84,7 @@ function authenticate($user, $pass)
         <form class="login-form" name="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <input type="text" id="username" name="username" placeholder="Email or Account Name">
           <input type="password" id="pass" name="password" minlength="8" required placeholder="Password">
-          <input class="button" name="submit" type="submit" value="Sign In"></input>
+          <input class="button" name="btnSubmit" type="submit" value="Sign In"></input>
         </form>
         <h2 class="errorMessage" id="errorMessage"></h2>
         <div class="divider"><span>Don't have an account yet?</span></div>

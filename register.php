@@ -1,6 +1,6 @@
 <?php
 require "dbconn.php";
-$salt = "kit202";
+$salt = '$1$kit202';
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
   $username = htmlspecialchars($_POST["username"]);
@@ -19,7 +19,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     "INSERT INTO ACCOUNT
     (accountName, accountPassword, accountRole, accountEmail) 
     VALUES 
-    ('$user', '$hash_pass', 'MEMBER', '$email');";
+    ('$username', '$hash_pass', 'MEMBER', '$email');";
 
     if ( $response =  $conn->query($insertPostSQL)) {
       header("location: login.php");

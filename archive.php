@@ -25,7 +25,7 @@
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
     </a>
-    <a href="login.html" class="link">Login</a>
+    <a href="login.php" class="link">Login</a>
     <a href="create.html" class="link">Create a Post!</a>
     <a href="about.html" class="link">About Us</a>
     <a href="archive.php" class="link">Archive</a>
