@@ -1,28 +1,35 @@
 <?php
 require "dbconn.php";
+$salt = "kit202";
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
   $username = htmlspecialchars($_POST["username"]);
   $email = htmlspecialchars($_POST["email"]);
   $password = htmlspecialchars($_POST["password"]);
   $confirmed_password = htmlspecialchars($_POST["confirmPass"]);
-  $hash_pass = crypt("$password");
-  if (check_username($username) = true) {
+  $hash_pass = crypt($password, $salt);
+  if (check_username($username) === true) {
     echo "<p>Username already existed, please enter a different username.</p>";
   }  
-  elseif (check_email($email) = true) {
+  elseif (check_email($email) === true) {
     echo "<p>Email already registered.</p>";
   }
   else {
-    $insertPostSQL = "INSERT INTO ACCOUNT
-        (accountName, accountPassword, accountRole, accountEmail) 
-        VALUES 
-        ('$user', '$hash_pass', 'MEMBER', '$email');";
-    header("location: 'login.php'");
+    $insertPostSQL = 
+    "INSERT INTO ACCOUNT
+    (accountName, accountPassword, accountRole, accountEmail) 
+    VALUES 
+    ('$user', '$hash_pass', 'MEMBER', '$email');";
+
+    if ( $response =  $conn->query($insertPostSQL)) {
+      header("location: login.php");
+    } else {
+      echo "<p>Database error occured</p>";
+    }
   }
 }
 
-function check_username($user)
+function check_username($user) : bool
 {
     global $conn;
 
@@ -39,7 +46,7 @@ function check_username($user)
   }
 }
 
-function check_email($email)
+function check_email($email) : bool
 {
     global $conn;
 
