@@ -1,6 +1,8 @@
 <?php
 require "dbconn.php";
 $salt = '$1$kit202';
+$existed_name =  false;
+$existed_email = false;
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
   $username = htmlspecialchars($_POST["username"]);
@@ -9,10 +11,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
   $confirmed_password = htmlspecialchars($_POST["confirmPass"]);
   $hash_pass = crypt($password, $salt);
   if (check_username($username) === true) {
-    echo "<p>Username already existed, please enter a different username.</p>";
+    $existed_name = true;
   }  
   elseif (check_email($email) === true) {
-    echo "<p>Email already registered.</p>";
+    $existed_email = true;
   }
   else {
     $insertPostSQL = 
@@ -124,7 +126,13 @@ function check_email($email) : bool
         <div class="divider"><span><h1>Register a new account!</h1></span></div>
         <form class="login-form" method="POST" name="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <input type="text" id="username" name="username" placeholder="Account Name">
+          <?php if ($existed_name == true) {
+            echo "<p>Username already existed, please enter a different username.</p>";
+          } ?>
           <input type="text" id="email" name="email" placeholder="Email Address">
+          <?php if ($existed_email == true) {
+            echo "<p>Email already registered.</p>";
+          } ?>
           <input type="password" id="pass" name="password" placeholder="Password">
           <input type="password" id="confpass" name="confirmPass"  placeholder="Confrim Password">
           <div class="errorMessage" id="errorMessage"></div>
