@@ -121,7 +121,7 @@
                     }
                 }
                 ?>
-                <a href=<?php echo '"rate.php?id='.$rowPost['postID'].'&previous='.$_SERVER['REQUEST_URI'].'"'?>> <?php echo 'Ratings: '.$rating?> </a>
+                <a href=<?php echo '"rate.php?id=' . $rowPost['postID'] . '&previous=' . $_SERVER['REQUEST_URI'] . '"'?>> <?php echo 'Ratings: ' . $rating?> </a>
                 <?php
               }
               ?>

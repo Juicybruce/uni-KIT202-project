@@ -1,10 +1,12 @@
 <?php
 
+session_start();
+
 require "./dbconn.php";
 
 $previousPage = $_GET["previous"];
 $id = $_GET["id"];
-$accountID = 1; //Change when get accounts working
+$accountID = $_SESSION['id']; //Change when get accounts working
 
 $previousPage =  "https://$_SERVER[HTTP_HOST]$previousPage";
 

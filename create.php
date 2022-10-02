@@ -1,4 +1,4 @@
-<? session_start(); ?>
+<?php session_start(); ?>
 
 <title>Create a Post</title>
 <head>

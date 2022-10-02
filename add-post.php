@@ -1,11 +1,12 @@
 <?php
 
+session_start();
 require 'dbconn.php';
 
 $title = $conn->real_escape_string(htmlspecialchars($_POST['title']));
 $tagsArray = explode(',', $_POST['tagsField']);
 $content = $conn->real_escape_string(htmlspecialchars($_POST['contentField']));
-$accountID = 1; //placeholder, this needs to be changed once users are implemented
+$accountID = $_SESSION['id'];
 $date = date("Y-m-d");
 
 $insertPostSQL = "INSERT INTO POST

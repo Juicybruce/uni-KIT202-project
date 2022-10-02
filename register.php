@@ -19,7 +19,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     "INSERT INTO ACCOUNT
     (accountName, accountPassword, accountRole, accountEmail) 
     VALUES 
-    ('$username', '$hash_pass', 'MEMBER', '$email');";
+    ('$username', '$hash_pass', 'ADMIN', '$email');"; //For now making all new users an admin to make testing easier
 
     if ( $response =  $conn->query($insertPostSQL)) {
       header("location: login.php");
