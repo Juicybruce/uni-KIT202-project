@@ -65,12 +65,21 @@ function authenticate($user, $pass)
 
 <body>
   <header class="header">
+    <?php 
+      $elevatedPerms = ['AUTHOR', 'ADMIN'];
+      $basicPerms =  ['MEMBER', 'ADMIN'];
+    ?>
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
     </a>
-    <a href="create.php" class="link">Create a Post!</a>
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $elevatedPerms)):?>
+      <a href="create.php" class="link">Create a Post!</a>
+    <?php endif; ?>
     <a href="about.php" class="link">About Us</a>
-    <a href="archive.php" class="link">Archive</a>
+
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $basicPerms)):?>
+      <a href="archive.php" class="link">Archive</a>
+    <?php endif; ?>
 
     <?php if (isset($_SESSION['username'])): ?>
       <div class="link--session">

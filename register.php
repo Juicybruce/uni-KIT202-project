@@ -88,13 +88,32 @@ function check_email($email) : bool
 </head>
 <body>
   <header class="header">
+    <?php 
+      $elevatedPerms = ['AUTHOR', 'ADMIN'];
+      $basicPerms =  ['MEMBER', 'ADMIN'];
+    ?>
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
     </a>
-    <a href="login.php" class="link">Login</a>
-    <a href="create.php" class="link">Create a Post!</a>
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $elevatedPerms)):?>
+      <a href="create.php" class="link">Create a Post!</a>
+    <?php endif; ?>
     <a href="about.php" class="link">About Us</a>
-    <a href="archive.php" class="link">Archive</a>
+
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $basicPerms)):?>
+      <a href="archive.php" class="link">Archive</a>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['username'])): ?>
+      <div class="link--session">
+        <div>Welcome, <?php echo $_SESSION['username']; ?></div>
+        <form method="POST" action="logout.php">
+          <input class="link" name="btnSubmit" type="submit" value="Log Out"></input>
+        </form>
+      </div>
+    <?php else:?>
+      <a href="login.php" class="link link--session">Login</a>
+    <?php endif; ?>
   </header>
   <section class="container">
     <div class="login">

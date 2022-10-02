@@ -1,3 +1,5 @@
+<? session_start(); ?>
+
 <title>Create a Post</title>
 <head>
   <meta charset="UTF-8">
@@ -19,26 +21,54 @@
   <script src="https://kit.fontawesome.com/5f78ca6619.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <?php require "header.php"; ?>
-  <section class="container">
-  <div class="createAPost">
-    <div class="divider">
-      <span>
-        <h1>Create a new post</h1>
-      </span>
-    </div>
-    <form novalidate class="createForm" name="createAPostForm" method="POST" action="add-post.php">
-      <input type="text" id="tileOfPostField" name="title" placeholder="Title of Post: (Max of 70 Characters)">
-      <input type="text" id="tagsField" name="tagsField" placeholder="Enter the tags for the post: (Tags seperated by , )">
-      <textarea id="contentField" name="contentField" placeholder="Enter the content of the post"></textarea>
-      <input class="button" type="submit" value="Submit">
-      <input class="button" type="reset">
-      <h2 class="errorMessage" id="errorMessage"></h2>
-    </form>
-    
-  </div>
-  
+  <header class="header">
+    <?php 
+      $elevatedPerms = ['AUTHOR', 'ADMIN'];
+      $basicPerms =  ['MEMBER', 'ADMIN'];
+    ?>
+    <a href="index.php">
+      <img src="./static/images/logo.svg" alt="logo" class="logo">
+    </a>
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $elevatedPerms)):?>
+      <a href="create.php" class="link">Create a Post!</a>
+    <?php endif; ?>
+    <a href="about.php" class="link">About Us</a>
 
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $basicPerms)):?>
+      <a href="archive.php" class="link">Archive</a>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['username'])): ?>
+      <div class="link--session">
+        <div>Welcome, <?php echo $_SESSION['username']; ?></div>
+        <form method="POST" action="logout.php">
+          <input class="link" name="btnSubmit" type="submit" value="Log Out"></input>
+        </form>
+      </div>
+    <?php else:?>
+      <a href="login.php" class="link link--session">Login</a>
+    <?php endif; ?>
+  </header>
+  <section class="container">
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $elevatedPerms)):?>
+      <div class="createAPost">
+        <div class="divider">
+          <span>
+            <h1>Create a new post</h1>
+          </span>
+        </div>
+        <form novalidate class="createForm" name="createAPostForm" method="POST" action="add-post.php">
+          <input type="text" id="tileOfPostField" name="title" placeholder="Title of Post: (Max of 70 Characters)">
+          <input type="text" id="tagsField" name="tagsField" placeholder="Enter the tags for the post: (Tags seperated by , )">
+          <textarea id="contentField" name="contentField" placeholder="Enter the content of the post"></textarea>
+          <input class="button" type="submit" value="Submit">
+          <input class="button" type="reset">
+          <h2 class="errorMessage" id="errorMessage"></h2>
+        </form>
+    <?php else: ?>
+      <div>You don't appear to have permission to post. Please apply for authorship privileges</div>
+    <?php endif; ?>
+    </div>
   </section>
   
   <footer class="footer">
