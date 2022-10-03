@@ -71,11 +71,13 @@
         <h4 class="post-title">HTTP Method</h4>
       </div>
       <p class="post-content">
-        We have chosen to use the POST method for all form submissions across the website.
+        We have chosen to use the POST method for most form submissions across the website.
         <br><br>
         The POST method has various advantages over GET, the other main alternative. First of all, the data sent is not encoded directly into the URL, but are rather encoded into the body of the request. This allows for larger amounts of data to be sent, as URLs are naturally restricted in length. This also causes the content of the request to be less ‘visible’ to the user (in the URL), but also prevents browser caching or bookmarking of form submissions.
         <br><br>
         While on the form that submits post data to the database, the POST method is useful given there are no restrictions on data sent, it is more essential on form submission for user logins for security reasons. As we are sending data over SSL, the data is obfuscated using either method. However, GET requests have the URL query stored both in browser history, as well as logged by web servers by default, making it problematic for use with sensitive values.
+        <br><br>
+        The cases where we did use GET was where the data was not sensitve which was the case in ratings system and the system for returing tags.
       </p>
     </div>
 
@@ -107,6 +109,11 @@
         <h4 class="post-title">Extensions</h4>
       </div>
       <p class="post-content">
+      For the additional features section of the assignment we implemented two new features the first of which is allowing users to rate posts and second of which was letting users search for all posts under a certain tag. 
+      <br><br>
+      The first of which is implemented by adding a new table to our SQL database RATES which is an all to all type for ACCOUNT and POST which contains both of their IDs. Then when retrieving each post we first grab all RATES and search for all entries with the same post ID as the post being grabbed and for each one increment a variable for each post and then display on the post. Then if a user clicks on the ratings it checks if the user already has a rating for that post and if not it adds a new entry into RATES.
+      <br><br>
+      The second of which was implemented by having each tag entry on a post be a link that leads to a new page and then shows all posts with that tag. This was done via sending the tag’s ID by GET and then checking all of the HASTAGS (Which is made up of a tag’s id and a post’s id) entries with that tag’s ID and adding all of the posts with the corresponding ID into an array. Then when displaying posts it only displays if that post’s ID is in the array.
       </p>
     </div>
 
