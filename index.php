@@ -100,7 +100,7 @@
                     foreach($tagArray as $tag) {
                       if($rowTags['tagID'] === $tag)
                       {
-                        echo '<a href="#">'.$rowTags['tagName'].'</a>';
+                        echo '<a href="results.php?tag='.$rowTags['tagID'].'">'.$rowTags['tagName'].'</a>';
                       }
                     }
                   }
