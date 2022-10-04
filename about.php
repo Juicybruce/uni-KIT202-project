@@ -86,6 +86,13 @@
         <h4 class="post-title">User Roles</h4>
       </div>
       <p class="post-content">
+        User roles are handled with a combination of authentication and session data. Firstly, a user may register an account in the database, which stores the details they enter, as well as a hashed version of their password. Upon attempting to login, these details are retrieved and compared to the ones provided. If they match, session data matching the users ID, username and role are stored.
+        <br><br>
+        It is this session data that is used to give the other functionality. If it is set, a user is logged in. A combination of the username and the ID are utilized to identify the user where necessary, ie, in the welcome message or created posts (username) or keeping track of post ratings (ID). As we are utilizing the superglobal session variables to do this, persistence between pages is trivial, the session and its variables are stored not on the pages, but in the server.
+        <br><br>
+        The roles are also identified as being part of a ‘basically privileged’ group, or an ‘elevated privileged’ group. The former is a basic member and can view posts, the latter is an author and may create posts. An admin possesses the priviledges of both. Both the header buttons and the pages themselves perform a check before displaying, to ensure the role the user is present in the relevant permissions array. If not, they are not displayed or in the case of pages, a message to that effect is shown in place of any content.
+        <br><br>
+        When a user logs out, their session and its data is destroyed and to log in again they must undergo authentication again.
       </p>
     </div>
 

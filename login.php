@@ -109,7 +109,7 @@ function authenticate($user, $pass)
         <div class="divider"><span>Or login here</span></div>
         <form class="login-form" name="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <input type="text" id="username" name="username" placeholder="Email or Account Name">
-          <input type="password" id="pass" name="password" minlength="8" required placeholder="Password">
+          <input type="password" id="pass" name="password" required placeholder="Password">
           <input class="button" name="btnSubmit" type="submit" value="Sign In"></input>
         </form>
         <h2 class="errorMessage" id="errorMessage"></h2>

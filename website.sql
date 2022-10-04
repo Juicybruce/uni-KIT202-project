@@ -52,8 +52,8 @@ CREATE TABLE RATES (
     )
     ENGINE=InnoDB;
 
-INSERT INTO ACCOUNT VALUES (1,'admin', '$1$kit202$HpcBxtPcSttOy.CgAdtCg0', 'AUTHOR', 'admin@admin.com');
-INSERT INTO ACCOUNT VALUES (2,'member', '$1$kit202$HpcBxtPcSttOy.CgAdtCg0', 'MEMBER', 'member@member.com');
+INSERT INTO ACCOUNT VALUES (1,'admin', '$1$kit202$SwQqvIwtHWD0Q3qMqkt74.', 'AUTHOR', 'admin@admin.com');
+INSERT INTO ACCOUNT VALUES (2,'member', '$1$kit202$SwQqvIwtHWD0Q3qMqkt74.', 'MEMBER', 'member@member.com');
 
 INSERT INTO TAG VALUES (1,'lorem');
 INSERT INTO TAG VALUES (2,'ipsum');
@@ -74,8 +74,6 @@ INSERT INTO POST VALUES (4,"Lorem ipsum dolor sit amet, consectetur adipiscing e
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
 in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
 mollit anim id est laborum.", '2022-9-28', "Lorem Ipsum",1);
-INSERT INTO POST VALUES (5,"The default accounts, admin and member, do not have the password 'kit202'. We have more stringent requirements in place for our password policy. 
-As such, the default password is 'Kit202!!' for both accounts. Please use this when accessing them.", '2022-9-29', "NOTE TO MARKER", 1);
 
 
 INSERT INTO HASTAGS VALUES (5,1);
