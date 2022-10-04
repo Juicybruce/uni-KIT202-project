@@ -121,7 +121,9 @@
                 }
                 ?>
                 <div class="ratings">
-                  <a href=<?php echo '"rate.php?id='.$rowPost['postID'].'&previous='.$_SERVER['REQUEST_URI'].'"'?>> <?php echo 'Ratings: '.$rating?> </a>
+                  <a
+                  <?php echo isset($_SESSION['role']) && in_array($_SESSION['role'], $basicPerms) ? null : 'style="pointer-events: none;"' ;?>
+                   href=<?php echo '"rate.php?id='.$rowPost['postID'].'&previous='.$_SERVER['REQUEST_URI'].'"'?>> <?php echo 'Ratings: '.$rating?> </a>
                 </div>
                 <?php
               }
