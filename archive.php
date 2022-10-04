@@ -26,7 +26,7 @@
   <header class="header">
       <?php 
         $elevatedPerms = ['AUTHOR', 'ADMIN'];
-        $basicPerms =  ['MEMBER', 'ADMIN'];
+        $basicPerms =  ['MEMBER', 'AUTHOR', 'ADMIN'];
       ?>
       <a href="index.php">
         <img src="./static/images/logo.svg" alt="logo" class="logo">
@@ -50,7 +50,7 @@
         <a href="login.php" class="link session-box link--session ">Login</a>
       <?php endif; ?>
     </header>
-    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $elevatedPerms)):?>
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], $basicPerms)):?>
       <?php 
       require "./dbconn.php";
       $selectPostSQL = "SELECT * 

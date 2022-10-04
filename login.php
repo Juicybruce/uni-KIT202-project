@@ -2,6 +2,7 @@
 <?php
 require "dbconn.php";
 $salt = '$5$kit202';
+$loginFailure = false;
  
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = htmlspecialchars($_POST["username"]);
@@ -19,7 +20,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
       header("location: index.php");
     }
     else {
-        echo "<p>Invalid username or password.</br>Please try again.</p>";
+        $loginFailure = true;
     }
 }
 
@@ -28,15 +29,33 @@ function authenticate($user, $pass)
     global $conn;
 
     $sql = "SELECT accountPassword FROM ACCOUNT WHERE accountName='$user'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
 
-    if (password_verify($pass, $row['accountPassword'] )) {
+    if (check_username($user)) {
+      $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+  
+      if (password_verify($pass, $row['accountPassword'] )) {
+        return true;
+      }
+    }    
+  return false;
+}
+
+function check_username($user) : bool
+{
+    global $conn;
+
+    $sql = "SELECT accountName FROM ACCOUNT WHERE accountName='$user'";
+    $result = $conn->query($sql);
+
+    if ($result) {
+      if (mysqli_num_rows($result) > 0) {
       return true;
     }
     else {
       return false;
     }
+  }
 }
 ?>
 
@@ -67,7 +86,7 @@ function authenticate($user, $pass)
   <header class="header">
     <?php 
       $elevatedPerms = ['AUTHOR', 'ADMIN'];
-      $basicPerms =  ['MEMBER', 'ADMIN'];
+      $basicPerms =  ['MEMBER', 'AUTHOR', 'ADMIN'];
     ?>
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
@@ -112,7 +131,11 @@ function authenticate($user, $pass)
           <input type="password" id="pass" name="password" required placeholder="Password">
           <input class="button" name="btnSubmit" type="submit" value="Sign In"></input>
         </form>
-        <h2 class="errorMessage" id="errorMessage"></h2>
+        <h2 class="errorMessage" id="errorMessage">
+          <?php if ($loginFailure === true) {
+            echo "<p>Invalid username or password.</br>Please try again.</p>";
+          } ?>
+        </h2>
         <div class="divider"><span>Don't have an account yet?</span></div>
         <a href="./register.php" class="register-button">Sign up here!</a>
       </div>

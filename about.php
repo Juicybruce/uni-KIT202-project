@@ -26,7 +26,7 @@
   <header class="header">
     <?php 
       $elevatedPerms = ['AUTHOR', 'ADMIN'];
-      $basicPerms =  ['MEMBER', 'ADMIN'];
+      $basicPerms =  ['MEMBER', 'AUTHOR', 'ADMIN'];
     ?>
     <a href="index.php">
       <img src="./static/images/logo.svg" alt="logo" class="logo">
